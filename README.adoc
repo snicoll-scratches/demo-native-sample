@@ -1,0 +1,44 @@
+= Native sample with Spring Boot 3
+
+This sample can be used to hack on Native with Spring Boot 3.
+
+NOTE: This is a work in progress and requires a local build of Spring Boot.
+
+== Setup
+
+You need to install a version of Spring Boot `3.0.0-SNAPSHOT` from the `aot` branch
+
+[indent=0]
+----
+	$ git checkout aot
+	$ ./gradlew publishToMavenLocal -xtest -xaggregatedJavadoc
+----
+
+You also need to have a `native-image` in your path. The easiest way to get started
+is with SDKMan:
+
+[indent=0]
+----
+	$ sdk install java 22.0.0.2.r17-nik
+----
+
+== Building
+
+To build the project and generate a native image for it, run the following command:
+
+[indent=0]
+----
+	$ ./mvnw package -Pnative
+----
+
+== Running
+
+One the build has completed, the native executable is in your `target` directory. You
+can run it as follows:
+
+[indent=0]
+----
+	$ target/demo-native-sample
+----
+
+
