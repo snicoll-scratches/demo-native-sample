@@ -28,15 +28,3 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
-
-springBoot {
-	aot()
-}
-
-graalvmNative {
-	toolchainDetection = false
-}
-
-tasks.named('nativeCompile') {
-	options.get().classpath sourceSets.aot.output
-}
