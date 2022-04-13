@@ -36,12 +36,6 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>aot-generate</id>
-						<goals>
-							<goal>aot-generate</goal>
-						</goals>
-					</execution>
-					<execution>
 						<id>repackage</id>
 						<configuration>
 							<classifier>exec</classifier>
@@ -51,33 +45,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<profiles>
-		<profile>
-			<id>native</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.graalvm.buildtools</groupId>
-						<artifactId>native-maven-plugin</artifactId>
-						<version>0.9.10</version>
-						<executions>
-							<execution>
-								<id>build-native</id>
-								<phase>package</phase>
-								<goals>
-									<goal>build</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<imageName>${project.artifactId}</imageName>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 
 	<repositories>
 		<repository>
