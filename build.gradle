@@ -10,7 +10,11 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
 repositories {
-	mavenLocal()
+	mavenLocal {
+		content {
+			includeGroup 'org.springframework.boot'
+		}
+	}
 	mavenCentral()
 	maven { url 'https://repo.spring.io/milestone' }
 	maven { url 'https://repo.spring.io/snapshot' }
